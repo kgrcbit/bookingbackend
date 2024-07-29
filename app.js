@@ -7,8 +7,8 @@ const app = express()
 const mongoose  = require('mongoose')
 const PORT = process.env.PORT || 10000
 const MONGOURI='mongodb+srv://sportscbit:wZokJ2Ug0coojB8J@sport-cbit.79n6t5u.mongodb.net/mydb?retryWrites=true&w=majority&appName=sport-cbit'
-//const {MONGOURI} = require('./config/keys')
-/ Serve static files from the frontend build directory
+const {MONGOURI} = require('./config/keys')
+//Serve static files from the frontend build directory
 app.use(express.static(path.join(__dirname, 'bookingfrontend', 'build')));
 
 // Handle all other requests by serving the frontend's index.html
