@@ -15,11 +15,11 @@ app.use(cors({
 app.use(express.json());
 
 // Serve static files from the frontend build directory
-app.use(express.static(path.join(__dirname, 'bookingfrontend', 'build')));
+app.use(express.static(path.join(__dirname, '/bookingfrontend/build', 'build')));
 
 // Handle all other requests by serving the frontend's index.html
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'bookingfrontend', 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, '/bookingfrontend/build', 'build', 'index.html'));
 });
 
 // Connect to MongoDB
