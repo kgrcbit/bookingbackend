@@ -26,7 +26,10 @@ require('./models/user')
 require('./models/post')
 
 
-app.use(cors());
+
+app.use(cors({
+  origin: 'https://bcbcbit1.onrender.com' // Your frontend URL
+}));
 app.use(express.json())
 app.use(require('./routes/auth'))
 app.use(require('./routes/bookings'))
