@@ -36,10 +36,10 @@ app.use('/user', require('./routes/user'));
 
 // Serve static files from the frontend build directory
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, './bookingfrontend/build')));
+  app.use(express.static(path.join(__dirname, '../bookingfrontend/build')));
 
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './bookingfrontend/build', 'index.html'));
+    res.sendFile(path.resolve(__dirname, '../bookingfrontend/build', 'index.html'));
   });
 }
 
