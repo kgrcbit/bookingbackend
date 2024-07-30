@@ -4,7 +4,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const app = express();
 
-const PORT = process.env.PORT || 10000;
+const PORT = process.env.PORT || 10000; // Use port 10000 if PORT environment variable is not set
 const MONGOURI = process.env.MONGOURI || 'mongodb+srv://sportscbit:wZokJ2Ug0coojB8J@sport-cbit.79n6t5u.mongodb.net/mydb?retryWrites=true&w=majority';
 
 // Connect to MongoDB
@@ -36,10 +36,10 @@ app.use('/user', require('./routes/user'));
 
 // Serve static files from the frontend build directory
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../bookingfrontend/build')));
+  app.use(express.static(path.join(__dirname, 'bookingfrontend', 'build')));
 
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../bookingfrontend/build', 'index.html'));
+    res.sendFile(path.resolve(__dirname, 'bookingfrontend', 'build', 'index.html'));
   });
 }
 
