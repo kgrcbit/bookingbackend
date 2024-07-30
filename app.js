@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 const PORT = process.env.PORT || 10000;
-const MONGOURI = process.env.MONGOURI || 'mongodb+srv://username:password@cluster-url/mydb?retryWrites=true&w=majority';
+const MONGOURI = process.env.MONGOURI;
 
 // Middleware
 app.use(cors({
@@ -14,11 +14,11 @@ app.use(cors({
 app.use(express.json());
 
 // Serve static files from the frontend build directory
-app.use(express.static(path.join(__dirname, '../bookingfrontend/build')));
+app.use(express.static(path.join(__dirname, './bookingfrontend/build')));
 
 // Handle all other requests by serving the frontend's index.html
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../bookingfrontend/build', 'index.html'));
+  res.sendFile(path.join(__dirname, './bookingfrontend/build', 'index.html'));
 });
 
 // Connect to MongoDB
